@@ -11,8 +11,11 @@ You should have received a copy of the GNU General Public License along with thi
 */
 package kniffel;
 
+import kniffel.states.MenuState;
+
 public class Launcher {
-    static String version="v1.0a1-090714", lang="lang_en";
+    public static String version="v1.0a1-090714";
+    public static String lang="lang_en";
 
     public static void main(String[] args){
         if(args.length>0) {
@@ -21,7 +24,7 @@ public class Launcher {
             return;
         }
 
-        mainMenu();
+        new MenuState().handleInput();
     }
 
     private static void handlePar(String par) {
@@ -31,37 +34,9 @@ public class Launcher {
             System.out.print("-l --lizenz   Lizenz anzeigen\n");
             System.out.print("-h --help /?  Hilfe anzeigen\n");
         } else if (par.equals("-l") || par.equals("--lizenz")) {
-            Utils.printLizenz();
+            Utils.printLicense();
         } else {
             System.out.print("Ungültige(r) Parameter ignoriert.\nVersuchen Sie --help für mehr Informationen.\n");
         }
-    }
-
-    static void mainMenu(){
-        Utils.printMenuMessage();
-        System.out.print("L: Lizenz anzeigen  N: Neues Spiel ");
-        char menu = Utils.readChar();
-        switch (menu) {
-            case 'l', 'L' -> licenseMenu();
-            case 'n', 'N' -> Engine.reset();
-            default -> {
-                System.out.print("Ungültige Eingabe\n\n");
-                mainMenu();
-            }
-        }
-    }
-
-    static void licenseMenu() {
-        Utils.printLizenz();
-        char menu;
-        System.out.print("N: Neues Spiel ");
-        menu = Utils.readChar();
-        if (menu == 'n' || menu == 'N') {
-            Engine.reset();
-        } else {
-            System.out.print("Ungültige Eingabe\n\n");
-            licenseMenu();
-        }
-
     }
 }
