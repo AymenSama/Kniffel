@@ -2,6 +2,7 @@ package kniffel.states;
 
 import kniffel.Launcher;
 import kniffel.Utils;
+import kniffel.states.engine.GameState;
 
 public class MenuState implements State {
     public void handleInput(){
