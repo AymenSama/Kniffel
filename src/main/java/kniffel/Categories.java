@@ -10,27 +10,27 @@ public class Categories {
     }
 
     public static int threeOfAKind(int[] dice) {
+        return ofAKind(dice, 3);
+    }
+
+    private static int ofAKind(int[] dice, int x) {
         int[] copy = sortedCopy(dice);
         long n = Arrays.stream(copy)
                 .filter(e -> e == copy[2])
                 .count();
 
-        if (n >= 3) {
+        if (n >= x) {
             return sumDice(dice);
         }
         return 0;
     }
 
-    public static int fourOfAKind(int[] dice) {
-        int[] copy = sortedCopy(dice);
-        long n = Arrays.stream(copy)
-                .filter(e -> e == copy[2])
-                .count();
+    private static int sumDice(int[] dice) {
+        return Arrays.stream(dice).sum();
+    }
 
-        if (n >= 4) {
-            return sumDice(dice);
-        }
-        return 0;
+    public static int fourOfAKind(int[] dice) {
+        return ofAKind(dice, 4);
     }
 
     public static int fullHouse(int[] dice) {
@@ -98,10 +98,6 @@ public class Categories {
         int[] copy = Arrays.copyOf(dice, dice.length);
         Arrays.sort(copy);
         return copy;
-    }
-
-    private static int sumDice(int[] dice) {
-        return Arrays.stream(dice).sum();
     }
 
 }
