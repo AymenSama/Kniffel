@@ -43,39 +43,31 @@ public class Categories {
     }
 
     public static int smallStraight(int[] dice) {
-        long sequenceOf1to4 = Arrays.stream(dice)
-                .filter(e -> e <= 4)
-                .distinct()
-                .count();
+        long x = distinctSequenceCount(dice, 1, 4);
 
-        long sequenceOf2to5 = Arrays.stream(dice)
-                .filter(e -> e >= 2 && e <= 5)
-                .distinct()
-                .count();
+        long y = distinctSequenceCount(dice, 2, 5);
 
-        long sequenceOf3to6 = Arrays.stream(dice)
-                .filter(e -> e >= 3)
-                .distinct()
-                .count();
+        long z = distinctSequenceCount(dice, 3, 6);
 
-        if(sequenceOf1to4 == 4 || sequenceOf2to5 == 4 || sequenceOf3to6 == 4) {
+        if(x == 4 || y == 4 || z == 4) {
             return 30;
         }
         return 0;
     }
 
+    private static long distinctSequenceCount(int[] dice, int lowerBound, int upperBound) {
+        return Arrays.stream(dice)
+                .filter(e -> e >= lowerBound && e <= upperBound)
+                .distinct()
+                .count();
+    }
+
     public static int largeStraight(int[] dice) {
-        long sequenceOf1to5 = Arrays.stream(dice)
-                .filter(e -> e <= 5)
-                .distinct()
-                .count();
+        long x = distinctSequenceCount(dice, 1, 5);
 
-        long sequenceOf2to6 = Arrays.stream(dice)
-                .filter(e-> e >= 2)
-                .distinct()
-                .count();
+        long y = distinctSequenceCount(dice, 2, 6);
 
-        if (sequenceOf1to5 == 5 || sequenceOf2to6 == 5) {
+        if (x == 5 || y == 5) {
             return 40;
         }
         return 0;
