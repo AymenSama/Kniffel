@@ -14,9 +14,7 @@ package kniffel;
 import kniffel.states.MenuState;
 
 public class Launcher {
-    public static String version="v1.0a1-090714";
-    public static String lang="lang_en";
-
+    public static final String VERSION ="v1.0a1-090714";
     public static void main(String[] args){
         if(args.length>0) {
             String par=args[0];
@@ -29,7 +27,7 @@ public class Launcher {
 
     private static void handlePar(String par) {
         if (par.equals("--help") || par.equals("/?") || par.equals("-h")){
-            System.out.print("Kniffel in c++ (basierend auf Kniffel in StarBasic) " + version + "\n\n");
+            System.out.print("Kniffel in c++ (basierend auf Kniffel in StarBasic) " + VERSION + "\n\n");
             System.out.print("-c -no-gui    Ohne grafische Benutzeroberfläche starten\n");
             System.out.print("-l --lizenz   Lizenz anzeigen\n");
             System.out.print("-h --help /?  Hilfe anzeigen\n");

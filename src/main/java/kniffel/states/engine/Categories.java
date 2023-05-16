@@ -1,9 +1,9 @@
-package kniffel;
+package kniffel.states.engine;
 
 import java.util.Arrays;
 
 public class Categories {
-    public static int sumOfAKind(int[] dice, int n) {
+    static int sumOfAKind(int[] dice, int n) {
         return Arrays.stream(dice)
                 .filter(d -> d == n)
                 .sum();
@@ -13,6 +13,7 @@ public class Categories {
         return ofAKind(dice, 3);
     }
 
+    // 3 or 4 equal numbers in a sorted array of exactly size 5 will always contain the third element
     private static int ofAKind(int[] dice, int x) {
         int[] copy = sortedCopy(dice);
         long n = Arrays.stream(copy)
@@ -29,11 +30,11 @@ public class Categories {
         return Arrays.stream(dice).sum();
     }
 
-    public static int fourOfAKind(int[] dice) {
+    static int fourOfAKind(int[] dice) {
         return ofAKind(dice, 4);
     }
 
-    public static int fullHouse(int[] dice) {
+    static int fullHouse(int[] dice) {
         int[] copy = sortedCopy(dice);
 
         if (copy[0] == copy[1] && copy[3] == copy[4] && (copy[2] == copy[1] || copy[2] == copy[3])) {
@@ -42,7 +43,7 @@ public class Categories {
         return 0;
     }
 
-    public static int smallStraight(int[] dice) {
+    static int smallStraight(int[] dice) {
         long x = distinctSequenceCount(dice, 1, 4);
 
         long y = distinctSequenceCount(dice, 2, 5);
@@ -62,7 +63,7 @@ public class Categories {
                 .count();
     }
 
-    public static int largeStraight(int[] dice) {
+    static int largeStraight(int[] dice) {
         long x = distinctSequenceCount(dice, 1, 5);
 
         long y = distinctSequenceCount(dice, 2, 6);
@@ -73,7 +74,7 @@ public class Categories {
         return 0;
     }
 
-    public static int kniffel(int[] dice) {
+    static int kniffel(int[] dice) {
         boolean allEqual = Arrays.stream(dice).allMatch(e -> e == dice[0]);
 
         if (allEqual) {
@@ -82,7 +83,7 @@ public class Categories {
         return 0;
     }
 
-    public static int chance(int[] dice) {
+    static int chance(int[] dice) {
         return sumDice(dice);
     }
 

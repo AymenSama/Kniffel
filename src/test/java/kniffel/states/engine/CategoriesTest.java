@@ -1,10 +1,9 @@
-package kniffel;
+package kniffel.states.engine;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.in;
 
-public class KniffelTest {
+public class CategoriesTest {
     @Test
     void sumOfAKind_01() {
         int[] dice = {1, 1, 1, 1, 2};

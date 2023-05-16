@@ -31,7 +31,7 @@ public class MenuState implements State {
         }
     }
     private static void printMenuMessage() {
-        System.out.print("\n\nKniffel in c++ " + Launcher.version + "\n" +
+        System.out.print("\n\nKniffel in c++ " + Launcher.VERSION + "\n" +
                 "Copyright (C) 2009 Markus Brenneis\n" +
                 "\n" +
                 "Für dieses Programm besteht KEINERLEI GARANTIE.\n" +

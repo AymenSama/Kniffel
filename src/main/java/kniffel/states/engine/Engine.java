@@ -1,6 +1,5 @@
 package kniffel.states.engine;
 
-import kniffel.Categories;
 import kniffel.Utils;
 
 import java.util.Arrays;
