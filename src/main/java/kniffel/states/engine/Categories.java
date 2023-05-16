@@ -13,7 +13,7 @@ public class Categories {
         return ofAKind(dice, 3);
     }
 
-    // 3 or 4 equal numbers in a sorted array of exactly size 5 will always contain the third element
+    // In a sorted array of size 5, a sequence of 3 or 4 equal elements will always contain the element at position 2 (0-based indexing)
     private static int ofAKind(int[] dice, int x) {
         int[] copy = sortedCopy(dice);
         long n = Arrays.stream(copy)
