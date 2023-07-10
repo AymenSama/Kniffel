@@ -29,7 +29,6 @@ public class Launcher {
     private static void handlePar(String par) {
         if (par.equals("--help") || par.equals("/?") || par.equals("-h")){
             System.out.print("Kniffel in c++ (basierend auf Kniffel in StarBasic) " + VERSION + "\n\n");
-            System.out.print("-c -no-gui    Ohne grafische Benutzeroberfläche starten\n");
             System.out.print("-l --lizenz   Lizenz anzeigen\n");
             System.out.print("-h --help /?  Hilfe anzeigen\n");
         } else if (par.equals("-l") || par.equals("--lizenz")) {
