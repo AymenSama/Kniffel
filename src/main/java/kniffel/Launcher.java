@@ -2,6 +2,7 @@
 Kniffel in c++ (basierend auf Kniffel in StarBasic)
 Copyright (C) 2009 Markus Brenneis
 (2023 nach Java portiert)
+(2023 von Aymen Sellami refaktoriert)
 
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
 
